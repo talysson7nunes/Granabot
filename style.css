@@ -1,34 +1,15 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f2f2f2;
+  color: #333;
 }
-header {
-    background-color: #004466;
-    color: white;
-    padding: 1em;
-    text-align: center;
+
+h1 {
+  color: #007acc;
 }
-main {
-    padding: 1em;
-}
-.card {
-    display: inline-block;
-    padding: 1em;
-    margin: 0.5em;
-    background-color: #e0e0e0;
-    border-radius: 8px;
-}
-.receita { background-color: #d0ffd0; }
-.despesa { background-color: #ffd0d0; }
-.saldo { background-color: #d0e0ff; }
-#chat-box {
-    border: 1px solid #ccc;
-    height: 200px;
-    overflow-y: scroll;
-    padding: 0.5em;
-    margin-bottom: 0.5em;
-    background-color: white;
+
+input {
+  margin: 5px;
+  padding: 5px;
 }
