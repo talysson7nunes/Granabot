@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>GranaBot</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <h1>GranaBot - Assessor Financeiro</h1>
@@ -19,6 +20,9 @@
 
   <h2>Saldo Previsto do Mês</h2>
   <p id="resultado"></p>
+
+  <h2>📈 Previsão dos Próximos 6 Meses</h2>
+  <canvas id="graficoSaldo" width="400" height="200"></canvas>
 
   <script src="app.js"></script>
 </body>
