@@ -25,3 +25,13 @@ function atualizarDashboard() {
     document.getElementById('despesa').innerText = despesa.toFixed(2);
     document.getElementById('saldo').innerText = (receita - despesa).toFixed(2);
 }
+function adicionarReceita() {
+    const valor = parseFloat(document.getElementById('valor-receita').value);
+    if (!isNaN(valor) && valor > 0) {
+        receita += valor;
+        atualizarDashboard();
+        document.getElementById('valor-receita').value = "";
+    } else {
+        alert("Insira um valor válido.");
+    }
+}
