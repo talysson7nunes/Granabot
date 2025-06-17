@@ -1,37 +1,32 @@
+let salario = parseFloat(localStorage.getItem("salario")) || 3000;
 
-let receita = 0;
-let despesa = 0;
+let gastosFixos = [
+  { nome: "Financiamento carro", valor: 1650 },
+  { nome: "Cartão de crédito", valor: 600 },
+  { nome: "Telefone", valor: 30 },
+  { nome: "Mercado", valor: 800 }
+];
 
-document.getElementById('upload').addEventListener('change', () => {
-    const result = "Gasto lido: Mercado R$ 78,90 (simulado)";
-    document.getElementById('ocr-result').innerText = result;
-    despesa += 78.90;
-    atualizarDashboard();
-});
+document.getElementById("salario").value = salario;
 
-function enviarPergunta() {
-    const input = document.getElementById('chat-input');
-    const chatBox = document.getElementById('chat-box');
-    const pergunta = input.value;
-    const resposta = "Simulação: Seu saldo está saudável! Continue economizando.";
-    chatBox.innerHTML += "<p><strong>Você:</strong> " + pergunta + "</p>";
-    chatBox.innerHTML += "<p><strong>GranaBot:</strong> " + resposta + "</p>";
-    input.value = "";
-    chatBox.scrollTop = chatBox.scrollHeight;
+function salvarSalario() {
+  salario = parseFloat(document.getElementById("salario").value);
+  localStorage.setItem("salario", salario);
+  calcularSaldo();
 }
 
-function atualizarDashboard() {
-    document.getElementById('receita').innerText = receita.toFixed(2);
-    document.getElementById('despesa').innerText = despesa.toFixed(2);
-    document.getElementById('saldo').innerText = (receita - despesa).toFixed(2);
+function calcularSaldo() {
+  let totalGastos = gastosFixos.reduce((soma, gasto) => soma + gasto.valor, 0);
+  let saldo = salario - totalGastos;
+  document.getElementById("resultado").textContent = "R$ " + saldo.toFixed(2);
+
+  let lista = document.getElementById("gastosFixos");
+  lista.innerHTML = "";
+  gastosFixos.forEach(gasto => {
+    let item = document.createElement("li");
+    item.textContent = `${gasto.nome}: R$ ${gasto.valor.toFixed(2)}`;
+    lista.appendChild(item);
+  });
 }
-function adicionarReceita() {
-    const valor = parseFloat(document.getElementById('valor-receita').value);
-    if (!isNaN(valor) && valor > 0) {
-        receita += valor;
-        atualizarDashboard();
-        document.getElementById('valor-receita').value = "";
-    } else {
-        alert("Insira um valor válido.");
-    }
-}
+
+window.onload = calcularSaldo;
