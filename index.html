@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GranaBot Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>GranaBot - Seu assessor financeiro</h1>
+    </header>
+    <main>
+        <section id="resumo">
+            <h2>Resumo Financeiro</h2>
+            <div id="cards">
+                <div class="card receita">Receita: R$ <span id="receita">0</span></div>
+                <div class="card despesa">Despesa: R$ <span id="despesa">0</span></div>
+                <div class="card saldo">Saldo: R$ <span id="saldo">0</span></div>
+            </div>
+        </section>
+        <section id="ocr">
+            <h2>Foto do Gasto (Simulado)</h2>
+            <input type="file" id="upload" accept="image/*">
+            <p id="ocr-result"></p>
+        </section>
+        <section id="chat">
+            <h2>Converse com o GranaBot</h2>
+            <div id="chat-box"></div>
+            <input type="text" id="chat-input" placeholder="Digite sua pergunta...">
+            <button onclick="enviarPergunta()">Enviar</button>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
